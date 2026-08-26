@@ -8,27 +8,26 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+
+
+@Entity
+@Table(name = "tb_missoes")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
+
 public class MissoesModel {
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Entity
-    @Table(name = "tb_missoes")
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Data
-    public class missoesModel {
+     private Long id;
+     private String nome;
+     private String dificuldade;
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-        private Long id;
-        private String nome;
-        private String dificuldade;
-
-        @OneToMany (mappedBy = "missoes")
-        private List<NinjaModel> ninjas;
+     @OneToMany (mappedBy = "missoes")
+     private List<NinjaModel> ninjas;
 
 
 }
 
-
-}
