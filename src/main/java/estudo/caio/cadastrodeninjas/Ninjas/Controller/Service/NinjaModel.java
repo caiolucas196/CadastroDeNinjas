@@ -1,8 +1,10 @@
-package estudo.caio.cadastrodeninjas;
+package estudo.caio.cadastrodeninjas.Ninjas.Controller.Service;
 
 
+import estudo.caio.cadastrodeninjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Audited;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -14,6 +16,13 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    // Um ninja tem uma unica missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Chave Estrangeira
+    private MissoesModel missoes;
+
+
 
     public NinjaModel() {
     }
