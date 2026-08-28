@@ -3,7 +3,7 @@ package estudo.caio.cadastrodeninjas.Ninjas.Controller.Service;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninja")
 
 
 public class NinjaController {
@@ -18,20 +18,20 @@ public class NinjaController {
 
     // Criando o CRUD
 
-    // Add ninja (CREATE)
+        // Add ninja (CREATE)
     @PostMapping("/criar")
     public String criar() {
         return "Ninja Criado";
     }
 
     // Mostrar todos os Ninjas  (CREATE)
-    @PostMapping("/todos")
+    @PostMapping("/listar")
     public String todos() {
         return "Mostrar Ninja";
     }
 
     // Procurar Ninjas Por ID (READ)
-    @PostMapping("/todosID")
+    @PostMapping("/listarID")
     public String todosID() {
         return "Mostrar Ninja por ID";
     }
