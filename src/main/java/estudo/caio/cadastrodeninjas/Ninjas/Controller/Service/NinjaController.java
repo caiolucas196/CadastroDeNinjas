@@ -1,8 +1,6 @@
 package estudo.caio.cadastrodeninjas.Ninjas.Controller.Service;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping
@@ -18,5 +16,36 @@ public class NinjaController {
 
     }
 
+    // Criando o CRUD
+
+    // Add ninja (CREATE)
+    @PostMapping("/criar")
+    public String criar() {
+        return "Ninja Criado";
+    }
+
+    // Mostrar todos os Ninjas  (CREATE)
+    @PostMapping("/todos")
+    public String todos() {
+        return "Mostrar Ninja";
+    }
+
+    // Procurar Ninjas Por ID (READ)
+    @PostMapping("/todosID")
+    public String todosID() {
+        return "Mostrar Ninja por ID";
+    }
+
+    // ALterar dados dos Ninjas (UPDATE)
+    @PutMapping ("/alterarID")
+    public String alterarNinjaPorID() {
+        return "Alterar Ninja por ID";
+    }
+
+    // Deletar Ninja (DELETE)
+    @DeleteMapping("/deletarID")
+    public String deletarNinjaPorID() {
+        return "Ninja deletado por ID";
+    }
 
 }
