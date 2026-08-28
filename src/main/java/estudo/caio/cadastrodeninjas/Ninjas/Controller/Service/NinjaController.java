@@ -2,11 +2,19 @@ package estudo.caio.cadastrodeninjas.Ninjas.Controller.Service;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/ninja")
+@RequestMapping("/ninjas")
 
 
 public class NinjaController {
+
+    private NinjaService ninjaService;
+
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
 
 
     @GetMapping("/boasvindas")
@@ -24,10 +32,10 @@ public class NinjaController {
         return "Ninja Criado";
     }
 
-    // Mostrar todos os Ninjas  (CREATE)
-    @PostMapping("/listar")
-    public String todos() {
-        return "Mostrar Ninja";
+    // Mostrar todos os Ninjas  (READ)
+    @GetMapping("/listar")
+    public List<NinjaModel> listarNinjas() {
+        return ninjaService.findAll();
     }
 
     // Procurar Ninjas Por ID (READ)
