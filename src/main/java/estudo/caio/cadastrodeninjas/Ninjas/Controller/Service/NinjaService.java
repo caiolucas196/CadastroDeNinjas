@@ -28,6 +28,9 @@ public class NinjaService {
 
     }
 
-
+    //CRIAR NINJAS
+    public NinjaModel criarNinja(NinjaModel ninjaModel) {
+        return ninjaRepository.save(ninjaModel);
+    }
 
 }
