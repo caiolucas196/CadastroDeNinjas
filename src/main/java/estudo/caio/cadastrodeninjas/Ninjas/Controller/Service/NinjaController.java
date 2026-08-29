@@ -39,7 +39,7 @@ public class NinjaController {
     }
 
     // Procurar Ninjas Por ID (READ)
-    @PostMapping("/listar/{id}")
+    @GetMapping("/listar/{id}")
     public NinjaModel listarNinjas(@PathVariable Long id) {
         return  ninjaService.findById(id);
     }
