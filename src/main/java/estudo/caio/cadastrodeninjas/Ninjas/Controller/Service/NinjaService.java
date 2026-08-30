@@ -25,12 +25,22 @@ public class NinjaService {
     public NinjaModel findById(Long id) {
         Optional<NinjaModel> ninjaPorID = ninjaRepository.findById(id);
         return ninjaPorID.orElse(null);
-
     }
 
     //CRIAR NINJAS
     public NinjaModel criarNinja(NinjaModel ninjaModel) {
         return ninjaRepository.save(ninjaModel);
+    }
+
+    //ATUALIZAR NINJA
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaModel) {
+        Optional<NinjaModel> ninjaPorID = ninjaRepository.findById(id);
+        if (ninjaPorID.isPresent()) {
+            ninjaModel.setId(id);
+            ninjaRepository.save(ninjaModel);
+            return ninjaPorID.get();
+        }
+        return ninjaModel;
     }
 
 }
