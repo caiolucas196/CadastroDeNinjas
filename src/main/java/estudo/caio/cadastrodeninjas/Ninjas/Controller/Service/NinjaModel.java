@@ -25,6 +25,9 @@ public class NinjaModel {
     @Column (name = "img_url")
     private String imgUrl;
     private int idade;
+    @Column
+    private String rank;
+
 
     // Um ninja tem uma unica missão
     @ManyToOne
