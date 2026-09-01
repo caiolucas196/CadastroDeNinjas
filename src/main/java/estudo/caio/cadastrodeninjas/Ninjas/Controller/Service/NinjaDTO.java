@@ -1,44 +1,27 @@
 package estudo.caio.cadastrodeninjas.Ninjas.Controller.Service;
 
-
 import estudo.caio.cadastrodeninjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
-@Entity
-@Table(name = "tb_cadastro")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class NinjaModel {
+@Builder
 
-    @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class NinjaDTO {
+
     private Long id;
     private String nome;
-    @Column (unique = true) //coluna unica
     private String email;
-    @Column (name = "img_url")
     private String imgUrl;
     private int idade;
-    @Column
     private String rank;
-
-
-    // Um ninja tem uma unica missão
-    @ManyToOne
-    @JoinColumn(name = "missoes_id") // Chave Estrangeira
     private MissoesModel missoes;
 
 
-
-
-
-
 }
-
-
