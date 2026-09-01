@@ -33,7 +33,7 @@ public class NinjaService {
     }
 
     // CRIAR NINJAS
-    public NinjaDTO criarNinja(NinjaDTO ninjaDTO) {
+    public NinjaDTO criarNinja(NinjaModel ninjaDTO) {
         // 1. Transforma o DTO que chegou em Model para o banco de dados salvar
         NinjaModel ninja = ninjaMapper.mapNinjaDTOtoModel(ninjaDTO);
 
@@ -45,7 +45,7 @@ public class NinjaService {
     }
 
     // ATUALIZAR NINJA
-    public NinjaDTO atualizarNinja(Long id, NinjaDTO ninjaDTO) {
+    public NinjaDTO atualizarNinja(Long id, NinjaModel ninjaDTO) {
         Optional<NinjaModel> ninjaPorID = ninjaRepository.findById(id);
 
         if (ninjaPorID.isPresent()) {
