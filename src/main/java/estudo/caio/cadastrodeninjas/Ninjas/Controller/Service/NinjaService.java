@@ -62,4 +62,10 @@ public class NinjaService {
         }
         return null; // Retorna null se não encontrar o ninja com esse ID
     }
+
+    //DELETAR NINJA
+    // DELETAR NINJA
+    public void deletarNinjaPorId(Long id) {
+        ninjaRepository.deleteById(id);
+    }
 }
