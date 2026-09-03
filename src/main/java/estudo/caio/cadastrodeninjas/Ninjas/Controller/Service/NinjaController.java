@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ninjas")
+@CrossOrigin(origins = "*")
 
 
 public class NinjaController {
