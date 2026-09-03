@@ -26,7 +26,7 @@ public class MissoesModel {
 
      private String nome;
 
-     @Column
+     @Column(name = "`rank`")
      private String rank;
 
      // Uma missão pode ter vários ninjas vinculados a ela.
