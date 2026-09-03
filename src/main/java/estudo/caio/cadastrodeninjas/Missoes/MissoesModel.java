@@ -26,8 +26,9 @@ public class MissoesModel {
 
      private String nome;
 
+     @Enumerated(EnumType.STRING)
      @Column(name = "`rank`")
-     private String rank;
+     private RankMissaoEnum rank;
 
      // Uma missão pode ter vários ninjas vinculados a ela.
      // O "mappedBy" avisa ao JPA que a chave estrangeira já foi criada lá na classe NinjaModel, no atributo "missoes"

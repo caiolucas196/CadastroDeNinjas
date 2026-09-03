@@ -30,8 +30,9 @@ public class NinjaModel {
     private String imgUrl;
     private int idade;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "`rank`")
-    private String rank;
+    private RankEnum rank;
 
 
     // Um ninja tem uma unica missão
