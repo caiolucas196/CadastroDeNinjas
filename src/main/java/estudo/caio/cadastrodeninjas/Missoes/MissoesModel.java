@@ -1,5 +1,6 @@
 package estudo.caio.cadastrodeninjas.Missoes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import estudo.caio.cadastrodeninjas.Ninjas.Controller.Service.NinjaModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,6 +16,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "ninjas")
+
+
 public class MissoesModel {
 
      @Id
@@ -29,6 +32,7 @@ public class MissoesModel {
      // Uma missão pode ter vários ninjas vinculados a ela.
      // O "mappedBy" avisa ao JPA que a chave estrangeira já foi criada lá na classe NinjaModel, no atributo "missoes"
      @OneToMany(mappedBy = "missoes")
+     @JsonIgnore
      private List<NinjaModel> ninjas;
 
 }
