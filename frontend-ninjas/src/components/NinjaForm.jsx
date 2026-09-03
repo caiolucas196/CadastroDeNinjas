@@ -31,7 +31,7 @@ export function NinjaForm({
 
                 <div style={{ display: 'flex', gap: '10px', marginTop: '5px' }}>
                     <button type="submit" style={{ flex: 1, backgroundColor: '#ff7700', color: '#fff', padding: '12px' }}>
-                        {idEditandoNinja ? 'Atualizar Ninja' : 'Registrar na Vila'}
+                        {idEditandoNinja ? 'Atualizar Ninja' : 'Registrar'}
                     </button>
                     {idEditandoNinja && (
                         <button type="button" onClick={limparFormularioNinja} style={{ flex: 1, backgroundColor: '#3f3f46', color: '#fff', padding: '12px' }}>
