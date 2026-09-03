@@ -2,7 +2,7 @@ package estudo.caio.cadastrodeninjas.Ninjas.Controller.Service;
 
 public class NinjaMapper {
 
-    public  NinjaModel mapNinjaDTOtoModel(NinjaDTO ninjaDTO) {
+    public  NinjaModel mapNinjaDTOtoModel(NinjaModel ninjaDTO) {
         NinjaModel ninjaModel = new NinjaModel();
         ninjaModel.setId(ninjaDTO.getId());
         ninjaModel.setNome(ninjaDTO.getNome());
