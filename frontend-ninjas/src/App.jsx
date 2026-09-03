@@ -145,7 +145,8 @@ function App() {
 
   return (
       <div className="container" style={{ padding: '20px', fontFamily: 'sans-serif', maxWidth: '800px', margin: '0 auto' }}>
-        <h1>Painel de Controle - Cadastro de Ninjas 🥷</h1>
+        <h1>Painel de Controle</h1> <h1>🥷Cadastro de Ninjas🥷</h1>
+
 
         <div style={{ marginBottom: '40px' }}>
           <NinjaForm

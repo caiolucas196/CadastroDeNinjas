@@ -11,16 +11,16 @@ export function NinjaForm({
                               limparFormularioNinja
                           }) {
     return (
-        <div style={{ marginBottom: '20px', padding: '15px', border: '1px solid #ccc', borderRadius: '8px', backgroundColor: '#fafafa' }}>
-            <h2>{idEditandoNinja ? 'Editar Ninja' : 'Adicionar Novo Ninja'}</h2>
-            <form onSubmit={salvarNinja} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <input type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} required />
-                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <div style={{ marginBottom: '20px', padding: '20px', border: '1px solid #33333d', borderRadius: '8px', backgroundColor: '#161619' }}>
+            <h2>{idEditandoNinja ? '⚠️ Editar Ninja' : '📜 Cadastrar Novo Ninja'}</h2>
+            <form onSubmit={salvarNinja} style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '15px' }}>
+                <input type="text" placeholder="Nome do Ninja" value={nome} onChange={(e) => setNome(e.target.value)} required />
+                <input type="email" placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <input type="number" placeholder="Idade" value={idade} onChange={(e) => setIdade(e.target.value)} required />
-                <input type="text" placeholder="Rank (ex: Genin, Jounin)" value={rank} onChange={(e) => setRank(e.target.value)} required />
-                <input type="url" placeholder="URL da Foto (opcional)" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} />
+                <input type="text" placeholder="Rank (ex: Genin, Jounin, Hokage)" value={rank} onChange={(e) => setRank(e.target.value)} required />
+                <input type="url" placeholder="URL da Foto (Avatar)" value={imgUrl} onChange={(e) => setImgUrl(e.target.value)} />
 
-                <select value={missaoId} onChange={(e) => setMissaoId(e.target.value)} style={{ padding: '8px' }}>
+                <select value={missaoId} onChange={(e) => setMissaoId(e.target.value)}>
                     <option value="">Selecione uma Missão (Opcional)</option>
                     {missoes.map((m) => (
                         <option key={m.id} value={m.id}>
@@ -29,12 +29,12 @@ export function NinjaForm({
                     ))}
                 </select>
 
-                <div style={{ display: 'flex', gap: '10px' }}>
-                    <button type="submit" style={{ flex: 1, backgroundColor: '#4CAF50', color: 'white', padding: '10px', border: 'none', cursor: 'pointer', borderRadius: '4px' }}>
-                        {idEditandoNinja ? 'Atualizar Ninja' : 'Cadastrar Ninja'}
+                <div style={{ display: 'flex', gap: '10px', marginTop: '5px' }}>
+                    <button type="submit" style={{ flex: 1, backgroundColor: '#ff7700', color: '#fff', padding: '12px' }}>
+                        {idEditandoNinja ? 'Atualizar Ninja' : 'Registrar na Vila'}
                     </button>
                     {idEditandoNinja && (
-                        <button type="button" onClick={limparFormularioNinja} style={{ flex: 1, backgroundColor: '#f44336', color: 'white', padding: '10px', border: 'none', cursor: 'pointer', borderRadius: '4px' }}>
+                        <button type="button" onClick={limparFormularioNinja} style={{ flex: 1, backgroundColor: '#3f3f46', color: '#fff', padding: '12px' }}>
                             Cancelar
                         </button>
                     )}

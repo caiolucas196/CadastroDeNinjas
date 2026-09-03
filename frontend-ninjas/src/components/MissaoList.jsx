@@ -1,28 +1,31 @@
 export function MissaoList({ missoes, idDetalheMissaoAberto, toggleDetalhesMissao, prepararEdicaoMissao, deletarMissao }) {
     return (
         <div>
-            <h2>Lista de Missões</h2>
+            <h2>📋 Mural de Missões</h2>
             {missoes.length === 0 ? (
-                <p>Nenhuma missão cadastrada.</p>
+                <p style={{ color: '#a1a1aa', fontStyle: 'italic' }}>Nenhuma missão disponível no mural.</p>
             ) : (
-                <ul style={{ listStyle: 'none', padding: 0 }}>
+                <ul>
                     {missoes.map((missao) => (
-                        <li key={missao.id} style={{ border: '1px solid #eee', margin: '10px 0', padding: '10px', borderRadius: '6px' }}>
+                        <li key={missao.id}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <div><strong>{missao.nome}</strong> | Rank: {missao.rank}</div>
+                                <div>
+                                    <strong style={{ color: '#60a5fa', fontSize: '1.1rem' }}>{missao.nome}</strong>
+                                    <span style={{ color: '#a1a1aa' }}> | Rank: <span style={{ color: '#ffd700' }}>{missao.rank}</span></span>
+                                </div>
                                 <div style={{ display: 'flex', gap: '8px' }}>
-                                    <button onClick={() => toggleDetalhesMissao(missao.id)} style={{ cursor: 'pointer', padding: '5px 10px' }}>
+                                    <button onClick={() => toggleDetalhesMissao(missao.id)} style={{ backgroundColor: '#27272a', color: '#f1f1f1', padding: '6px 12px' }}>
                                         {idDetalheMissaoAberto === missao.id ? '🔼 Ocultar' : '🔍 Detalhes'}
                                     </button>
-                                    <button onClick={() => prepararEdicaoMissao(missao)} style={{ cursor: 'pointer', padding: '5px 10px' }}>✏️ Editar</button>
-                                    <button onClick={() => deletarMissao(missao.id)} style={{ cursor: 'pointer', padding: '5px 10px', color: 'red' }}>🗑️ Deletar</button>
+                                    <button onClick={() => prepararEdicaoMissao(missao)} style={{ backgroundColor: '#3f3f46', color: '#f1f1f1', padding: '6px 12px' }}>✏️</button>
+                                    <button onClick={() => deletarMissao(missao.id)} style={{ backgroundColor: '#7f1d1d', color: '#f1f1f1', padding: '6px 12px' }}>🗑️</button>
                                 </div>
                             </div>
 
                             {idDetalheMissaoAberto === missao.id && (
-                                <div style={{ marginTop: '10px', padding: '10px', backgroundColor: '#e3f2fd', borderTop: '1px dashed #ccc', borderRadius: '4px' }}>
+                                <div style={{ marginTop: '15px', padding: '15px', backgroundColor: '#0d0d0f', borderTop: '1px dashed #33333d', borderRadius: '6px' }}>
                                     <p><strong>ID da Missão:</strong> {missao.id}</p>
-                                    <p><strong>Nome:</strong> {missao.nome}</p>
+                                    <p><strong>Descrição/Nome:</strong> {missao.nome}</p>
                                 </div>
                             )}
                         </li>
