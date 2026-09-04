@@ -29,6 +29,8 @@ Para rodar a aplicação completa na sua máquina, você só precisa ter o Docke
 git clone https://github.com/caiolucas196/CadastroDeNinjas.git
 cd CadastroDeNinjas
 
+** ou: docker pull caiolucas196/cadastro-ninjas-backend:latest
+
 #### 2. Subir o Banco de Dados (Docker)
 Na pasta do backend (onde está o arquivo docker-compose.yml), execute:
 docker compose up -d
