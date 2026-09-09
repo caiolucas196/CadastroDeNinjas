@@ -6,8 +6,8 @@ public enum RankMissaoEnum {
     RANK_B("Rank B", "Missões de média dificuldade voltadas para shinobi, com grande chance de combate contra outros mercenários."),
     RANK_A("Rank A", "Missões de alta periculosidade envolvendo escolta de pessoas importantes ou conflitos militares estatais."),
     RANK_S("Rank S", "Missões de nível ultra-secreto e perigo máximo, reservadas para ninjas de elite, envolvendo assassinatos de alto escalão ou salvamentos críticos."),
-    Rank_SS("Rank SS","Missões de nível Kage, onde só eles poderiam resolver qualquer tipo de problema que for."),
-    Rank_SSS("Rank SS+","Missões onde a probabilidade de morte de quem assumi-las, é quase certa, independente do nível");
+    RANK_SS("Rank SS","Missões de nível Kage, onde só eles poderiam resolver qualquer tipo de problema que for."),
+    RANK_SSS("Rank SS+","Missões onde a probabilidade de morte de quem assumi-las, é quase certa, independente do nível");
 
 
     private final String nome;
