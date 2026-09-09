@@ -101,6 +101,8 @@ function App() {
   const salvarMissao = (e) => {
     e.preventDefault()
     const missaoData = { nome: nomeMissao, rank: rankMissao }
+
+    // CORRIGIDO: Usando idEditandoMissao em vez de idEditandoNinja
     const url = idEditandoMissao ? `http://localhost:8080/missoes/alterar/${idEditandoMissao}` : 'http://localhost:8080/missoes/criar'
     const metodo = idEditandoMissao ? 'PUT' : 'POST'
 
@@ -174,9 +176,10 @@ function App() {
         <hr style={{ margin: '40px 0' }} />
 
         <div>
+          {/* CORRIGIDO: Passando nome/setNome e rank/setRank para bater com o MissaoForm */}
           <MissaoForm
-              nomeMissao={nomeMissao} setNomeMissao={setNomeMissao}
-              rankMissao={rankMissao} setRankMissao={setRankMissao}
+              nome={nomeMissao} setNome={setNomeMissao}
+              rank={rankMissao} setRank={setRankMissao}
               idEditandoMissao={idEditandoMissao}
               salvarMissao={salvarMissao}
               limparFormularioMissao={limparFormularioMissao}

@@ -40,8 +40,8 @@ export function MissaoForm({
                         <option value="RANK_B">Rank B - Média dificuldade para shinobi</option>
                         <option value="RANK_A">Rank A - Alta periculosidade</option>
                         <option value="RANK_S">Rank S - Perigo máximo e elite</option>
-                        <option value="Rank_SS">Rank SS - Nível Kage</option>
-                        <option value="Rank_SSS">Rank SS+ - Mortalidade quase certa</option>
+                        <option value="RANK_SS">Rank SS - Nível Kage</option>
+                        <option value="RANK_SSS">Rank SS+ - Mortalidade quase certa</option>
                     </select>
                 </div>
 
