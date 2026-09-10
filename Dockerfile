@@ -1,11 +1,11 @@
-# Estágio de Build (Empacota a aplicação com Maven)
-FROM maven:3.9.6-eclipse-temurin-21 AS build
+# Estágio de Build
+FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
 COPY . .
-RUN mvn clean package -DskipTests
+RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
-# Estágio de Execução (Roda a aplicação levemente)
-FROM eclipse-temurin:21-jdk-alpine
+# Estágio de Execução
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080

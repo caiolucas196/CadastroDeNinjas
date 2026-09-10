@@ -1,62 +1,53 @@
-# ⚔️ Cadastro de Ninjas - Sistema de Gestão de Shinobis
+🥷 Cadastro de Ninjas & Missões (Fullstack)
+Aplicação web fullstack desenvolvida para gerenciamento de ninjas e missões, construída com foco em boas práticas de arquitetura, integração de APIs e containerização.
 
-Um sistema full-stack desenvolvido para gerenciamento de ninjas e missões, inspirado no universo de Konoha. Projeto criado com foco em arquitetura limpa, validação rigorosa de dados, experiência de usuário imersiva e facilidade de execução para avaliação técnica.
+🚀 Tecnologias Utilizadas
+Back-end: Java 21, Spring Boot, Spring Data JPA, H2 Database (File-based), Maven.
 
-### Tecnologias Utilizadas
+Front-end: React, Vite, JavaScript, CSS.
 
-#### Backend
-* Java 21
-* Spring Boot (Spring Data JPA, Web)
-* MySQL (Banco de dados relacional)
-* Flyway (Gerenciamento e migração de banco de dados)
-* Docker & Docker Compose (Containerização do ambiente)
+DevOps / Infraestrutura: Docker, Docker Compose, Nginx, Eclipse Temurin.
 
-#### Frontend
-* React + Vite
-* CSS Modules / Estilização Modular (Cards temáticos e modais imersivos)
+🐳 Como Executar a Aplicação via Docker (Recomendado)
+Se você deseja testar a aplicação rapidamente sem precisar configurar o ambiente de desenvolvimento local, você pode subir todo o ecossistema (Front-end e Back-end integrados) utilizando o Docker.
 
-### Regras de Domínio e Arquitetura
+Pré-requisitos
+Docker e Docker Compose instalados na sua máquina.
 
-* **Ranks de Ninjas (Enum):** Validação rígida no cadastro (Estudante, Genin, Chuunin, Jounin, Jounin Especial, ANBU, Kage, Lendário, Nukenin, Civil).
-* **Hierarquia de Missões (Enum):** Escala extrema de periculosidade indo desde tarefas domésticas (Rank D) até missões de mortalidade quase certa (Rank SS+).
-* **Relação Ninja-Missão:** Cada shinobi pode ser atribuído a uma missão específica do catálogo de acordo com sua patente.
+Passo a Passo
+Crie um arquivo chamado docker-compose.yml em uma pasta vazia no seu computador.
 
-### Como Executar o Projeto (Recrutador / Plug & Play)
+Cole o seguinte conteúdo dentro do arquivo:
 
-Para rodar a aplicação completa na sua máquina, você só precisa ter o Docker e o Node.js instalados.
+version: '3.8'
 
-#### 1. Clonar o Repositório
-git clone https://github.com/caiolucas196/CadastroDeNinjas.git
+services:
+backend:
+image: caiolucas196/cadastrodeninjas-backend:latest
+container_name: ninja-backend
+ports:
+- "8080:8080"
+  restart: always
 
-cd CadastroDeNinjas
+frontend:
+image: caiolucas196/cadastrodeninjas-frontend:latest
+container_name: ninja-frontend
+ports:
+- "80:80"
+  depends_on:
+- backend
+  restart: always
 
-> Via Docker: docker pull caiolucas196/cadastro-ninjas-backend:latest
+Abra o terminal na mesma pasta onde salvou o arquivo e execute o comando:
 
-#### 2. Subir o Banco de Dados (Docker)
-Na pasta do backend (onde está o arquivo docker-compose.yml), execute:
 docker compose up -d
 
-> *Isso iniciará o container MySQL na porta 3306 com os dados e migrações configurados automaticamente pelo Flyway.*
+Pronto! O Docker irá baixar as imagens diretamente do Docker Hub e subir a aplicação:
 
-#### 3. Iniciar o Backend (Spring Boot)
-Abra o projeto na sua IDE de preferência (IntelliJ IDEA, Eclipse) e execute a classe principal CadastroDeNinjasApplication, ou rode via terminal:
-./mvnw spring-boot:run
+Acesse o Front-end: Abra o navegador e vá para http://localhost
 
-#### 4. Iniciar o Frontend (React)
-Abra um novo terminal, navegue até a pasta do frontend (frontend-ninjas), instale as dependências e inicie o servidor:
-cd frontend-ninjas
-npm install
-npm run dev
+Acesse a API (Back-end): Disponível em http://localhost:8080
 
-Acesse no navegador: http://localhost:5173
+Para derrubar os containers após o uso, basta executar:
 
-### Demonstração do Sistema
-
-* **Listagem em Cards Temáticos:** Visual dinâmico com bordas e selos baseados no rank do shinobi.
-* **Modal de Detalhes:** Exibição completa das informações do ninja e status de missões ativas ao clicar em cima do card.
-* **Formulários Protegidos:** Menus suspensos (`<select>`) customizados que impedem o envio de dados corrompidos ou fora do padrão do ecossistema.
-
-### 📫 Contato
-
-* **LinkedIn:** [Caio Lucas](https://www.linkedin.com/in/caio-lfe/)
-* **GitHub:** [@caiolucas196](https://github.com/caiolucas196)
+docker compose down
